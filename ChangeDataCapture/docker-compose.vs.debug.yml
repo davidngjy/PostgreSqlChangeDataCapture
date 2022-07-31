@@ -1,0 +1,4 @@
+services:
+  changedatacapture.data.migrate:
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages --additionalProbingPath /root/.nuget/fallbackpackages  \"/app/bin/Debug/net6.0/ChangeDataCapture.Data.Migrate.dll\" --ScriptBasePath \"/app/bin/debug/net6.0/Migrations\""

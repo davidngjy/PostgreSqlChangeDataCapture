@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  changedatacapture.webapi:
+    image: ${DOCKER_REGISTRY-}changedatacapture.webapi
+    build:
+      context: .
+      dockerfile: ChangeDataCapture.WebApi/Dockerfile
+      args:
+        PAT: ${PAT}
+        APP_VERSION: ${APP_VERSION:-0.0.0}
+
+  changedatacapture.data.migrate:
+    build:
+      context: .
+      dockerfile: ChangeDataCapture.Data.Migrate/Dockerfile

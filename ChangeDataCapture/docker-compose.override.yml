@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  changedatacapture.webapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+      - ConnectionStrings__DefaultConnection=Server=changedatacapture.database;Database=changedatacapture;User Id=postgres;Password=travel1@;Include Error Detail=true
+    ports:
+      - "80"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+
+  changedatacapture.data.migrate:
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=changedatacapture.database;Database=changedatacapture;User Id=postgres;Password=travel1@;Include Error Detail=true
+    depends_on:
+    - changedatacapture.database
+
+  changedatacapture.database:
+    image: postgres:14
+    environment:
+      - POSTGRES_PASSWORD=travel1@
+      - POSTGRES_DB=changedatacapture
+    ports:
+      - "5432:5432"
