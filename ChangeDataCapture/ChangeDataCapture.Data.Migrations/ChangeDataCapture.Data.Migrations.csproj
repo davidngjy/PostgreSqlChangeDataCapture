@@ -13,4 +13,8 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\2 - RunAlways\1 - MasterData\" />
+  </ItemGroup>
+
 </Project>
