@@ -44,7 +44,7 @@ internal class PostgresDeployer : IDBDeployer
                     .WithRunOnceScripts(_configuration)
                     .WithRunAlwaysScripts(_configuration)
                     .WithVariablesDisabled()
-                    .WithTransaction()
+                    .WithoutTransaction()
                     .Build()
                     .PerformUpgrade();
 

@@ -8,13 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="Migrations\**\*">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <Compile Remove="Migrations\2 - RunAlways\1 - MasterData\**" />
+    <EmbeddedResource Remove="Migrations\2 - RunAlways\1 - MasterData\**" />
+    <None Remove="Migrations\2 - RunAlways\1 - MasterData\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\2 - RunAlways\1 - MasterData\" />
+    <None Update="Migrations\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
